@@ -106,6 +106,16 @@ export default createSchema({
               },
             },
             {
+              name: 'command',
+              title: 'Command',
+              type: "code",
+              options: {
+                withFilename: false,
+              },
+            },
+            {
+              name: 'code',
+              title: 'Code',
               type: "code",
               options: {
                 withFilename: true,
