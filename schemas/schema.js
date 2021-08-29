@@ -39,6 +39,16 @@ export default createSchema({
           title: "Title",
         },
         {
+          name: "slug",
+          type: "slug",
+          title: "Slug",
+          options: {
+            source: "title",
+            maxLength: 200,
+          },
+          validation: (Rule) => Rule.required(),
+        },
+        {
           name: "subtitle",
           type: "string",
           title: "Subtitle",
@@ -106,16 +116,16 @@ export default createSchema({
               },
             },
             {
-              name: 'command',
-              title: 'Command',
+              name: "command",
+              title: "Command",
               type: "code",
               options: {
                 withFilename: false,
               },
             },
             {
-              name: 'code',
-              title: 'Code',
+              name: "code",
+              title: "Code",
               type: "code",
               options: {
                 withFilename: true,
@@ -134,12 +144,6 @@ export default createSchema({
           title: "Author",
           type: "reference",
           to: [{ type: "author" }],
-          validation: (Rule) => Rule.required(),
-        },
-        {
-          name: "slug",
-          type: "slug",
-          title: "Slug",
           validation: (Rule) => Rule.required(),
         },
       ],
