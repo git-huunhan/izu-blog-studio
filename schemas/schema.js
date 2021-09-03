@@ -29,6 +29,26 @@ export default createSchema({
       ],
     },
     {
+      name: "category",
+      title: "Category",
+      type: "document",
+      fields: [
+        {
+          name: "title",
+          title: "Category Name",
+          type: "string",
+        },
+        {
+          name: "slug",
+          title: "Slug",
+          type: "slug",
+          options: {
+            source: "title",
+          },
+        },
+      ],
+    },
+    {
       name: "blog",
       type: "document",
       title: "Blog",
@@ -145,6 +165,12 @@ export default createSchema({
           type: "reference",
           to: [{ type: "author" }],
           validation: (Rule) => Rule.required(),
+        },
+        {
+          name: "categories",
+          title: "Categories",
+          type: "reference",
+          to: [{ type: "category" }],
         },
       ],
     },
